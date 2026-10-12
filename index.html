@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>Destino FC</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--panel:#17171a;--p2:#111113;--p3:#212126;--fx:#2a2a30;--fxt:#f2f2f2;--line:#38383f;--chalk:#fafafa;--mute:#9b9ba3;--y:#ffffff;--g:#ffffff;--red:#e5484d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme=light]{--bg:#f6f6f4;--panel:#ffffff;--p2:#ececea;--p3:#e2e2df;--fx:#e8e8e6;--fxt:#111111;--line:#cfcfcb;--chalk:#0a0a0b;--mute:#66666d;--y:#0a0a0b;--g:#0a0a0b}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--chalk);font:16px/1.4 'Work Sans',system-ui,sans-serif}
+main{max-width:520px;margin:0 auto;padding:14px 14px 40px}
+.top{display:flex;justify-content:center;font-family:'Archivo Black',Impact,sans-serif;font-size:22px;padding:4px 0 12px}
+.top span{color:var(--y)}
+h2{font-family:'Archivo Black',Impact,sans-serif;font-weight:400;font-size:24px;margin:6px 0 10px}
+h3{font-family:'Archivo Black',Impact,sans-serif;font-weight:400;font-size:22px;margin:0 0 4px}
+.pg{height:8px;border-radius:4px;background:var(--panel);margin-bottom:16px;overflow:hidden}.pg b{display:block;height:100%;background:var(--g)}
+button,input{font:inherit;color:var(--chalk)}
+.btn{border:2px solid var(--chalk);background:transparent;border-radius:30px;padding:9px 16px;font-size:14px;font-weight:700;cursor:pointer}
+.btn.p{background:var(--chalk);color:var(--bg)}.btn:disabled{opacity:.4}
+.btn:focus-visible,input:focus-visible,.cl:focus-visible,.pos:focus-visible,.c:focus-visible{outline:3px solid var(--y);outline-offset:2px}
+.nav{position:sticky;bottom:0;display:flex;gap:12px;padding:12px 0;background:linear-gradient(transparent,var(--bg) 30%)}.nav .btn{flex:1}
+.in{width:100%;background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:10px;text-align:center;font-weight:700;font-size:16px;text-transform:uppercase}
+.lbl{font-size:12px;letter-spacing:.06em;color:var(--mute);text-align:center;margin:14px 0 6px;font-weight:700;text-transform:uppercase}
+.row2{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--panel);border-radius:14px;padding:5px}.seg button{border:0;background:transparent;border-radius:10px;padding:8px;font-weight:700;color:var(--mute)}.seg .on{background:var(--chalk);color:var(--bg)}
+.cs{background:var(--panel);border-radius:18px;padding:8px;display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:12px}
+.c{display:flex;gap:10px;align-items:center;padding:9px 10px;background:transparent;border:0;border-radius:10px;font-weight:600;text-align:left;cursor:pointer}.c .f{font-size:22px}
+.pitch{position:relative;aspect-ratio:.72;border-radius:18px;background:repeating-linear-gradient(#1c1c20 0 12.5%,#141417 12.5% 25%);border:3px solid #3a3a41;margin:6px 0}
+.pitch svg{position:absolute;inset:0;width:100%;height:100%}
+.pos{position:absolute;transform:translate(-50%,-50%);background:#0a0a0b;border:2px solid #4a4a52;color:#fff;border-radius:30px;padding:6px 11px;font-size:14px;font-weight:700;cursor:pointer}.pos.on{background:#fff;color:#0a0a0b;border-color:#fff}
+.hd{display:grid;grid-template-columns:auto 1fr;gap:10px;margin-bottom:6px}
+.ovr{width:70px;border-radius:14px;text-align:center;padding:8px 0;font-family:'Archivo Black',sans-serif;color:#fff}.ovr small{display:block;font:700 12px 'Work Sans';opacity:.9}.ovr b{font-size:36px;line-height:1;font-weight:400}
+.hc{background:var(--panel);border-radius:14px;padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:center}
+.pill{display:inline-block;background:#1b3a8a;border-radius:20px;padding:2px 10px;font-size:12px;font-weight:700;margin-left:6px}
+.cn{font-family:'Archivo Black',sans-serif;font-size:20px;line-height:1.1;grid-column:1}
+.rt{text-align:right;font-size:12px;color:var(--mute)}.rt b{font-size:22px;color:var(--chalk);font-family:'Archivo Black',sans-serif;font-weight:400}
+.th,.tr{display:grid;grid-template-columns:46px 1fr 46px 36px 30px 30px;gap:4px;align-items:center}
+.th{font-size:11px;color:var(--mute);padding:6px 4px;font-weight:700}
+.tr{border-radius:12px;margin-bottom:5px;padding:4px;min-height:42px;font-weight:600}.tr.f{opacity:.28;background:var(--panel)}.tr.n{background:var(--p3);outline:2px solid var(--line)}
+.ag{border-radius:9px;text-align:center;padding:8px 0;font-family:'Archivo Black',sans-serif;font-size:17px}
+.ob{border-radius:8px;text-align:center;font-weight:700;padding:3px 0;font-size:15px}
+.cb{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bd{display:inline-flex;width:24px;height:24px;border-radius:50%;align-items:center;justify-content:center;font:700 10px 'Work Sans';border:2px solid;vertical-align:middle;margin-right:6px}
+.pn{background:var(--panel);border-radius:18px;padding:12px;margin-top:10px}.pn p{color:var(--mute);margin:0 0 12px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.cards.two{grid-template-columns:1fr 1fr}
+.cl{border:0;border-radius:14px;padding:10px 6px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:118px;justify-content:space-between}
+.cl small{font-size:11px;opacity:.8}.cl .bg{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 18px 'Work Sans';border:3px solid}
+.dc{border:0;border-radius:14px;padding:10px 8px;min-height:104px;text-align:center;cursor:pointer;background:var(--p3);display:flex;flex-direction:column;justify-content:space-between;gap:10px;font-weight:700;font-size:15px}
+.fx{background:var(--fx);border-radius:20px;padding:6px 9px;font-size:12px;font-weight:600;color:var(--fxt)}.fx.w{background:#4a1d28;color:#ffc4cc}
+.tot{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;background:var(--p2);border-radius:12px;padding:10px 0;margin:10px 0}.tot b{display:block;font:400 20px 'Archivo Black'}.tot small{font-size:11px;color:var(--mute)}
+.tro{font-size:36px;text-align:center;margin:8px 0;letter-spacing:6px}
+.acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.sum{border:3px solid var(--y);border-radius:18px;padding:18px;background:var(--panel)}
+@media (prefers-reduced-motion:no-preference){.pn,.sum{animation:in .3s ease}@keyframes in{from{opacity:0;transform:translateY(6px)}}}
+.top{position:relative}.tg{position:absolute;right:0;top:0;background:var(--panel);border:2px solid var(--line);color:var(--chalk);border-radius:50%;width:38px;height:38px;font-size:18px;cursor:pointer}
+.ob{color:#fff}.pill{color:#fff}
+.md{display:grid;gap:12px}.mc{text-align:left;background:var(--panel);border:2px solid var(--line);border-radius:16px;padding:12px 14px;color:var(--chalk);cursor:pointer;display:grid;gap:2px;font:inherit}.mc b{font:400 22px 'Archivo Black'}.mc span{color:var(--g);font-weight:700}.mc small{color:var(--mute);font-size:14px}.mc:focus-visible,.tg:focus-visible{outline:3px solid var(--y);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){
+.cl,.dc,.mc,.btn,.c{transition:transform .15s}
+.cl:hover,.dc:hover,.mc:hover{transform:translateY(-3px)}
+.cl:active,.dc:active,.mc:active,.c:active,.btn:active{transform:scale(.96)}
+.tr.nw{animation:nw 1s ease}@keyframes nw{0%{transform:translateX(-16px);opacity:0}40%{box-shadow:0 0 0 2px var(--y)}100%{box-shadow:0 0 0 0 transparent}}
+.cl,.dc,.mc{animation:pop .45s cubic-bezier(.2,1.4,.4,1) both}@keyframes pop{from{opacity:0;transform:scale(.8) translateY(14px)}}
+.mc:nth-child(2){animation-delay:.08s}.mc:nth-child(3){animation-delay:.16s}
+.ovr.up{animation:up .8s}@keyframes up{40%{transform:scale(1.12);box-shadow:0 0 24px #ffffff88}}
+.ovr.dn{animation:dn .6s}@keyframes dn{20%,60%{transform:translateX(-4px)}40%,80%{transform:translateX(4px)}}
+.tro{animation:tro 1s}@keyframes tro{from{transform:scale(.3);opacity:0}60%{transform:scale(1.2)}}
+.pos.on{animation:beat .4s}@keyframes beat{50%{transform:translate(-50%,-50%) scale(1.2)}}
+}
+</style></head>
+<body><main id="app"></main>
+<script>
+var PA=[['Alemania','🇩🇪','#f2f2f2','#c1272d'],['Argentina','🇦🇷','#75aadb','#ffffff'],['Bélgica','🇧🇪','#c8102e','#f9d616'],['Bolivia','🇧🇴','#007934','#f9e300'],['Brasil','🇧🇷','#f6d90f','#0a5a2b'],['Canadá','🇨🇦','#d52b1e','#ffffff'],['Chile','🇨🇱','#d52b1e','#0039a6'],['Colombia','🇨🇴','#fcd116','#003893'],['Croacia','🇭🇷','#f4f4f4','#d52b1e'],['Ecuador','🇪🇨','#fcd116','#003893'],['España','🇪🇸','#aa151b','#f1bf00'],['Estados Unidos','🇺🇸','#f4f4f4','#0a3161'],['Francia','🇫🇷','#0a2a8a','#ffffff'],['Inglaterra','🏴','#f4f4f4','#1b2a6b'],['Italia','🇮🇹','#0a5bbd','#ffffff'],['Japón','🇯🇵','#1a3b8a','#ffffff'],['Marruecos','🇲🇦','#c1272d','#006233'],['México','🇲🇽','#006847','#ffffff'],['Países Bajos','🇳🇱','#f36c21','#111111'],['Paraguay','🇵🇾','#d52b1e','#ffffff'],['Perú','🇵🇪','#f4f4f4','#d52b1e'],['Portugal','🇵🇹','#c8102e','#006600'],['Turquía','🇹🇷','#e30a17','#ffffff'],['Uruguay','🇺🇾','#5cb6e6','#111111']];
+var PS={DC:[50,11,1,.12],EI:[17,17,.7,.3],ED:[83,17,.7,.3],MCO:[50,29,.5,.4],MI:[20,43,.35,.3],MD:[80,43,.35,.3],MC:[50,53,.25,.25],MCD:[50,68,.1,.1],LI:[17,72,.12,.2],LD:[83,72,.12,.2],DFC:[50,82,.05,.03],POR:[50,94,0,0]};
+var K=[['Deportivo Sierra','🇪🇸',1,'#1d6b3a','#ffffff'],['Unión Costera','🇧🇷',1,'#1c4f9c','#ffffff'],['Racing del Valle','🇦🇷',1,'#7a2a8a','#ffffff'],['Ciudad Mar FC','🇲🇽',2,'#c27a0e','#111111'],['Estrella Roja','🇵🇹',2,'#c1272d','#ffffff'],['Olimpia Norte','🇨🇴',2,'#0f8a8a','#ffffff'],['Atlético Pampa','🇦🇷',3,'#2a6fd6','#ffffff'],['Sporting Alba','🇵🇹',3,'#1a8a3c','#ffffff'],['Dinamo Lago','🇩🇪',3,'#a01c45','#ffffff'],['Real Metrópoli','🇪🇸',4,'#e8e8e8','#1a2a6b'],['Inter Capital','🇮🇹',4,'#111a3a','#4aa3ff'],['Unión del Rin','🇩🇪',4,'#d4231a','#ffffff'],['Real Imperial','🇪🇸',5,'#f5f5f5','#6b3fa0'],['Gigantes FC','🏴',5,'#6cb4ee','#ffffff'],['Atlético Titán','🇫🇷',5,'#0a1a4a','#e5484d']];
+var D=[{t:'Entrenamiento extra',d:'Tu preparador te propone sumar sesiones.',o:[['Doble turno','+3 OVR · riesgo de lesión',{o:3,l:.3}],['Entrenar normal','+1 OVR · sin riesgos',{o:1}]]},
+{t:'Entrevista picante',d:'Un periodista te provoca con una pregunta incómoda.',o:[['Responder sin filtro','-1 OVR · más ruido',{o:-1}],['Sonreír y callar','+1 OVR',{o:1}]]},
+{t:'Hora de mentorear',d:'Un juvenil te pide consejos todos los días.',o:[['Ser su mentor','+2 OVR',{o:2}],['Enfocarte en ti','+1 OVR · más minutos',{o:1,m:.1}]]},
+{t:'Dieta a medida',d:'El club te ofrece un nutricionista personal.',o:[['Aceptar el plan','+2 OVR',{o:2}],['Comer como siempre','Sin cambios',{o:0}]]},
+{t:'Llamado de la selección',d:'Te convocan para los próximos partidos.',o:[['Ir con tu país','+1 OVR · cansancio',{o:1,m:.1,l:.15}],['Descansar','Menos riesgo de lesión',{o:0}]]},
+{t:'La cinta de capitán',d:'El vestuario te propone como capitán.',o:[['Aceptar la cinta','+2 OVR · más presión',{o:2,l:.1}],['Dejársela a otro','Menos presión',{o:0,m:.05}]]}];
+var $=function(s){return document.querySelector(s)},app=$('#app'),S,W;
+function R(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+function C(v,a,b){return Math.max(a,Math.min(b,v))}
+function E(x){return String(x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function lum(h){var n=parseInt(h.slice(1),16);return ((n>>16)*.3+((n>>8)&255)*.59+(n&255)*.11)}
+function ink(h){return lum(h)>140?'#0a120e':'#ffffff'}
+function ini(n){return n.split(' ').map(function(w){return w[0]}).slice(0,2).join('').toUpperCase()}
+function money(k){return k>=1000?'€'+(k/1000>=100?Math.round(k/1000):(Math.round(k/100)/10))+'M':'€'+Math.max(10,Math.round(k/10)*10)+'K'}
+function hdr(p){return '<div class="top">Destino&nbsp;<span>FC</span><button class="tg" onclick="tg()" aria-label="Cambiar tema">◐</button></div><div class="pg"><b style="width:'+p+'%"></b></div>'}
+function nav(back,next,label,dis){return '<div class="nav"><button class="btn" id="bk">Volver</button><button class="btn p" id="nx"'+(dis?' disabled':'')+'>'+label+'</button></div>'}
+function shirt(){
+ var p=W.nat,c1=p[2],c2=p[3],t=ink(c1),ap=(W.ape||'APELLIDO').toUpperCase();
+ return '<svg viewBox="0 0 240 250" style="width:56%;max-width:230px;display:block;margin:6px auto"><path d="M72 14 L100 6 Q120 26 140 6 L168 14 L224 66 L198 98 L176 84 L176 236 Q120 246 64 236 L64 84 L42 98 L16 66 Z" fill="'+c1+'"/><path d="M100 6 Q120 26 140 6" stroke="'+c2+'" stroke-width="7" fill="none"/><path d="M16 66 L42 98" stroke="'+c2+'" stroke-width="9"/><path d="M224 66 L198 98" stroke="'+c2+'" stroke-width="9"/><text x="120" y="76" text-anchor="middle" font-family="Archivo Black,Impact" font-size="'+(ap.length>9?16:21)+'" fill="'+t+'">'+E(ap)+'</text><text x="120" y="156" text-anchor="middle" font-family="Archivo Black,Impact" font-size="76" fill="'+t+'">'+E(W.num||'10')+'</text></svg>';
+}
+function s1(q){
+ q=(q||'').toLowerCase();
+ var l=PA.filter(function(p){return p[0].toLowerCase().indexOf(q)>-1});
+ $('#ls').innerHTML=l.map(function(p){return '<button class="c" data-n="'+p[0]+'"><span class="f">'+p[1]+'</span>'+p[0]+'</button>'}).join('');
+ document.querySelectorAll('.c').forEach(function(b){b.onclick=function(){W.nat=PA.filter(function(p){return p[0]==b.dataset.n})[0];wiz(2)}});
+}
+function wiz(n){
+ if(n==0){app.innerHTML=hdr(8)+'<h2>Elige tu ritmo</h2><div class="md">'+[[1,'Lento','Año por año','Cada temporada cuenta. Carrera larga y detallada.'],[2,'Normal','Cada 2 años','El ritmo equilibrado.'],[3,'Exprés','Cada 3 años','Carrera rápida, en pocos minutos.']].map(function(m){return '<button class="mc" data-s="'+m[0]+'"><b>'+m[1]+'</b><span>'+m[2]+'</span><small>'+m[3]+'</small></button>'}).join('')+'</div>';document.querySelectorAll('.mc').forEach(function(b){b.onclick=function(){W.step=+b.dataset.s;wiz(1)}})}
+ if(n==1){app.innerHTML=hdr(33)+'<h2>Nacionalidad</h2><input class="in" id="sr" placeholder="Buscar país" style="text-transform:none;text-align:left"><div class="cs" id="ls"></div>';s1();$('#sr').oninput=function(){s1(this.value)}}
+ if(n==2){
+  app.innerHTML=hdr(66)+'<h2>Identidad</h2><div id="sh">'+shirt()+'</div><div class="row2"><div><div class="lbl">Apellido</div><input class="in" id="ap" maxlength="12" value="'+E(W.ape||'')+'" placeholder="Tu apellido"></div><div><div class="lbl">Número</div><input class="in" id="nu" type="number" min="1" max="99" value="'+(W.num||10)+'"></div></div><div class="lbl">Pierna hábil</div><div class="seg"><button data-p="Izquierda" class="'+(W.pie=='Izquierda'?'on':'')+'">Izquierda</button><button data-p="Derecha" class="'+(W.pie!='Izquierda'?'on':'')+'">Derecha</button></div>'+nav(0,0,'Continuar',!W.ape);
+  W.pie=W.pie||'Derecha';
+  function up(){W.ape=$('#ap').value.trim();W.num=C(parseInt($('#nu').value)||10,1,99);$('#sh').innerHTML=shirt();$('#nx').disabled=!W.ape}
+  $('#ap').oninput=up;$('#nu').oninput=up;
+  document.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){W.pie=b.dataset.p;document.querySelectorAll('.seg button').forEach(function(x){x.classList.toggle('on',x==b)})}});
+  $('#bk').onclick=function(){wiz(1)};$('#nx').onclick=function(){wiz(3)};
+ }
+ if(n==3){
+  var h='<svg viewBox="0 0 100 139" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-width=".6"><rect x="2" y="2" width="96" height="135"/><line x1="2" y1="69.5" x2="98" y2="69.5"/><circle cx="50" cy="69.5" r="12"/><rect x="25" y="2" width="50" height="22"/><rect x="25" y="115" width="50" height="22"/><rect x="38" y="2" width="24" height="8"/><rect x="38" y="129" width="24" height="8"/></svg>';
+  Object.keys(PS).forEach(function(k){h+='<button class="pos'+(W.pos==k?' on':'')+'" data-k="'+k+'" style="left:'+PS[k][0]+'%;top:'+PS[k][1]+'%">'+k+'</button>'});
+  app.innerHTML=hdr(100)+'<h2>Posición</h2><div class="pitch">'+h+'</div>'+nav(0,0,'Confirmar identidad',!W.pos);
+  document.querySelectorAll('.pos').forEach(function(b){b.onclick=function(){W.pos=b.dataset.k;document.querySelectorAll('.pos').forEach(function(x){x.classList.toggle('on',x==b)});$('#nx').disabled=false}});
+  $('#bk').onclick=function(){wiz(2)};$('#nx').onclick=begin;
+ }
+}
+function begin(){
+ S={step:W.step||2,nat:W.nat,ape:W.ape.toUpperCase(),num:W.num,pos:W.pos,age:16,ovr:R(48,52),club:null,rows:[],ph:'offer',pm:{}};
+ play();
+}
+function val(){var v=100*Math.exp((S.ovr-50)*.17);var a=S.age;if(a>30)v*=Math.max(.04,1-(a-30)*.16);return v}
+function gr(a){return a<20?R(3,6):a<22?R(2,4):a<25?R(1,2):a<28?R(0,1):a<31?R(-1,1):R(-3,-1)}
+function sim(){
+ var a=S.age,g=0,pm=S.pm||{};S.po=S.ovr;for(var y=0;y<S.step;y++)g+=gr(a+y);
+ S.ovr=C(S.ovr+g+(pm.o||0),40,95);
+ var inj=Math.random()<(pm.l||0),sl=S.club[2],gap=S.ovr-(38+sl*9),mins=C(.5+gap/30+(pm.m||0)+R(-10,10)/100,.12,1);
+ if(inj){mins*=.55;S.ovr-=1}
+ var pj=Math.round(mins*35*S.step),P=PS[S.pos],f=.3+(S.ovr-50)/60,gl=Math.round(pj*P[2]*.4*f*(R(60,130)/100)),as=Math.round(pj*P[3]*.35*f*(R(60,130)/100)),t=0;
+ if(mins>.5&&Math.random()<(sl*.07+(S.ovr>78?.08:0))*S.step/2)t=1;
+ if(mins>.75&&sl>=3&&Math.random()<.12)t++;
+ S.rows.push({a:a,c:S.club,o:S.ovr,pj:pj,g:gl,as:as,t:t});S.pm={};S.age+=S.step;
+ S.ph=S.ph=='offer'?'dec':'offer';
+ if(S.age>=38||(S.age>=30&&S.ovr<54))S.ph='end';
+}
+function ovc(o){return o>=80?'linear-gradient(#f5c542,#e08a0b)':o>=65?'linear-gradient(#7d8fa6,#4b5b70)':'linear-gradient(#e0861c,#a9540b)'}
+function bd(c,s){return '<span class="bd" style="background:'+c[3]+';color:'+c[4]+';border-color:'+c[4]+'">'+ini(c[0])+'</span>'}
+function board(){
+ var c=S.club,h='<div class="top">Destino&nbsp;<span>FC</span><button class="tg" onclick="tg()" aria-label="Cambiar tema">◐</button></div><div class="hd"><div class="ovr" style="background:'+ovc(S.ovr)+'"><small>OVR</small><b id="ov">'+S.ovr+'</b></div><div class="hc"><div><span style="font-size:13px;font-weight:700">'+S.nat[1]+' '+S.nat[0].slice(0,3).toUpperCase()+'</span><span class="pill">#'+S.num+' '+S.pos+'</span></div><div class="rt">EDAD <b>'+S.age+'</b></div><div class="cn">'+(c?bd(c)+E(c[0]):'Libre')+'</div><div class="rt">VALOR <b>'+money(val())+'</b></div></div></div><div class="th"><span>EDAD</span><span>CLUB</span><span>OVR</span><span>PJ</span><span>GLS</span><span>AST</span></div>';
+ for(var a=16;a<=38;a+=S.step){
+  var r=S.rows.filter(function(x){return x.a==a})[0];
+  if(r){var bg=r.c[3];h+='<div class="tr'+(r===S.rows[S.rows.length-1]?' nw':'')+'" style="background:'+bg+'30"><div class="ag" style="background:'+bg+';color:'+ink(bg)+'">'+a+'</div><div class="cb">'+bd(r.c)+E(r.c[0])+(r.t?' '+'🏆'.repeat(r.t):'')+'</div><div class="ob" style="background:'+ovc(r.o)+'">'+r.o+'</div><div>'+r.pj+'</div><div>'+r.g+'</div><div>'+r.as+'</div></div>'}
+  else if(a==S.age&&S.ph!='end')h+='<div class="tr n"><div class="ag" style="background:var(--p3)">'+a+'</div><div class="cb" style="color:var(--mute)">'+(S.ph=='offer'?'Eligiendo club…':'Decisión de carrera…')+'</div><div class="ob" style="background:'+ovc(S.ovr)+'">'+S.ovr+'</div><div></div><div></div><div></div></div>';
+  else h+='<div class="tr f"><div class="ag">'+a+'</div></div>';
+ }
+ return h;
+}
+function offers(){
+ var l=[],s=C(Math.round((S.ovr-44)/9),1,5);
+ if(S.age==16)s=1;
+ var pool=K.filter(function(k){return S.club?k!==S.club:true});
+ [s-1,s,s+1].forEach(function(t,i){
+  t=C(t,1,5);if(S.age==16)t=C(i+1,1,2);
+  var c=pool.filter(function(k){return k[2]==t&&l.indexOf(k)<0});
+  if(!c.length)c=pool.filter(function(k){return l.indexOf(k)<0});
+  l.push(c[R(0,c.length-1)]);
+ });
+ if(S.club&&S.age>16)l[R(0,2)]=S.club;
+ return l;
+}
+function play(){
+ var h=board(),p='';
+ if(S.ph=='offer'){
+  var l=offers();S.off=l;
+  p='<div class="pn"><h3>'+(S.age==16?'Oferta de cantera':'Ofertas de club')+'</h3><p>'+(S.age==16?'Tres clubes quieren tu talento. Elige dónde empieza tu carrera.':'Tres clubes se interesan por ti. Elige dónde juegas '+(S.step==1?'la próxima temporada':'las próximas '+(S.step==2?'dos':'tres')+' temporadas')+'.')+'</p><div class="cards">'+l.map(function(c,i){return '<button class="cl" data-i="'+i+'" style="background:'+c[3]+'33"><small>'+(c===S.club?'Renovar con':'Fichar por')+'</small><b style="font-size:15px">'+E(c[0])+'</b><span class="bg" style="background:'+c[3]+';color:'+c[4]+';border-color:'+c[4]+'">'+ini(c[0])+'</span><small>'+c[1]+' · '+'★'.repeat(c[2])+'</small></button>'}).join('')+'</div></div>';
+ }
+ if(S.ph=='dec'){
+  var d=S.dc=D[R(0,D.length-1)];
+  p='<div class="pn"><h3>'+d.t+'</h3><p>'+d.d+'</p><div class="cards two">'+d.o.map(function(o,i){return '<button class="dc" data-i="'+i+'"><span>'+o[0]+'</span><span class="fx'+(o[2].o<0?' w':'')+'">'+o[1]+'</span></button>'}).join('')+'</div></div>';
+ }
+ if(S.ph=='end'){
+  var T=0,PJ=0,G=0,A=0,pk=0;S.rows.forEach(function(r){T+=r.t;PJ+=r.pj;G+=r.g;A+=r.as;pk=Math.max(pk,r.o)});S.sm={T:T,PJ:PJ,G:G,A:A,pk:pk};
+  p='<div class="pn" style="text-align:center"><h3>Tu carrera llegó a su fin</h3><div class="tot"><div><small>PJ</small><b>'+PJ+'</b></div><div><small>GLS</small><b>'+G+'</b></div><div><small>AST</small><b>'+A+'</b></div><div><small>TÍTULOS</small><b>'+T+'</b></div></div><div class="tro">'+(T?'🏆'.repeat(Math.min(T,8)):'—')+'</div><div class="acts"><button class="btn p" id="rs">Ver resumen</button><button class="btn" id="ag">Volver a jugar</button></div></div>';
+ }
+ app.innerHTML=h+p;scrollTo(0,0);cnt();
+ document.querySelectorAll('.cl').forEach(function(b){b.onclick=function(){S.club=S.off[b.dataset.i];sim();play()}});
+ document.querySelectorAll('.dc').forEach(function(b){b.onclick=function(){S.pm=S.dc.o[b.dataset.i][2];sim();play()}});
+ if($('#rs')){$('#rs').onclick=summary;$('#ag').onclick=newg}
+}
+function summary(){
+ var m=S.sm,t;
+ if(m.pk>=88&&m.T>=5)t='Leyenda mundial';else if(m.pk>=82&&m.T>=2)t='Estrella internacional';else if(m.pk>=75)t='Figura de primera';else if(m.pk>=65)t='Jugador de carrera';else t='Promesa que no llegó';
+ var tx='Mi carrera en Destino FC: '+t+'. '+S.ape+' #'+S.num+' ('+S.pos+', '+S.nat[0]+') · OVR máx. '+m.pk+' · '+m.PJ+' PJ · '+m.G+' goles · '+m.T+' títulos. ¿Puedes superarme?';
+ app.innerHTML='<div class="top">Destino&nbsp;<span>FC</span><button class="tg" onclick="tg()" aria-label="Cambiar tema">◐</button></div><div class="sum"><div class="lbl" style="margin-top:0">Resumen de carrera</div><h2 style="text-align:center;font-size:34px">'+t+'</h2>'+shirt2()+'<div class="tot"><div><small>OVR MÁX.</small><b>'+m.pk+'</b></div><div><small>PJ</small><b>'+m.PJ+'</b></div><div><small>GLS</small><b>'+m.G+'</b></div><div><small>TÍTULOS</small><b>'+m.T+'</b></div></div></div><div class="acts"><button class="btn p" id="sh">Compartir</button><button class="btn" id="ag">Volver a jugar</button></div><p class="lbl" id="ms"></p>';
+ $('#ag').onclick=newg;
+ $('#sh').onclick=function(){try{if(navigator.share){navigator.share({text:tx});return}}catch(e){}try{navigator.clipboard.writeText(tx);$('#ms').textContent='Copiado. Pégalo donde quieras.'}catch(e){$('#ms').textContent=tx}};
+}
+function shirt2(){var o=W;W={nat:S.nat,ape:S.ape,num:S.num};var s=shirt();W=o;return s}
+function newg(){W={nat:null,pie:'Derecha'};wiz(0)}
+function cnt(){var e=$('#ov');if(!e||S.po==null)return;var a=S.po,b=S.ovr,t0=null;if(a==b)return;e.parentNode.classList.add(b>a?'up':'dn');if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;e.textContent=a;function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/700);e.textContent=Math.round(a+(b-a)*k);if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+function tg(){var d=document.documentElement,n=d.dataset.theme=='light'?'dark':'light';d.dataset.theme=n;try{localStorage.setItem('dfc',n)}catch(e){}}
+(function(){var t;try{t=localStorage.getItem('dfc')}catch(e){}document.documentElement.dataset.theme=t||'dark'})();
+newg();
+</script></body></html>
